@@ -14,8 +14,10 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+
 email.properties
 jdbc.properties
+
 # External tool builders
 .externalToolBuilders/
 
