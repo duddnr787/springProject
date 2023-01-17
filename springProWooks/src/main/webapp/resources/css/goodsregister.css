@@ -1,0 +1,47 @@
+form{
+  background-color:  rgb(166, 212, 252);
+}
+.form_section{
+  padding-top: 30px;
+}
+.form_section_title{
+	border-bottom:1px solid #000;
+}
+.form_section_content{
+	margin-top: 30px;
+}
+.btn-section{
+	 width: 440px;
+    margin: 0 auto;
+    /* margin-top: 70px;
+    margin-bottom: 70px; */
+    text-align: center;
+}
+#register{
+    width: 215px;
+    height: 48px;
+    padding: 0;
+    line-height: 48px;
+    font-size: 16px;
+    color: rgb(5, 3, 3);
+    background-color: rgb(166, 212, 252);
+    border: 1px solid #d6d6d6;
+    box-sizing: border-box;
+}
+#cancel{
+	 width: 215px;
+    height: 48px;
+    padding: 0;
+    line-height: 48px;
+    font-size: 16px;
+    color: rgb(5, 3, 3);
+    background-color: white;
+    border: 1px solid #d6d6d6;
+    box-sizing: border-box;
+}
+input{
+	width:70%;
+}
+#addFile{
+	width:30%;
+}

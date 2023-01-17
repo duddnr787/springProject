@@ -1,0 +1,92 @@
+/* 전체 속성 */
+*{
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    margin:auto auto;
+}
+button, .submit-btn{
+    cursor: pointer;
+}
+
+.logout-form{
+    width: 300px;
+    height: 100%;
+    margin: 100px auto auto auto;
+    padding: 20px;
+    border: 1px;
+    border-radius: 30px;
+    background-color: rgb(166, 212, 252);
+}
+#logout{
+    margin-top: 50px;
+}
+.logout-form h1{
+	text-align: center;
+}
+.login-form h1{
+   text-align: center;
+   margin-bottom: 50px;
+   padding: 20px;
+   font: bold 30px/1.2 'arial';
+}
+.login-form a{
+    color: rgb(0, 68, 255);
+}
+#auto-login{
+    margin-bottom: 130px;
+}
+.login-form label{
+    font-size: 14px;
+}
+.text-field{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font: normal 14px 'arial';
+}
+.submit-btn, .find-btn{
+    width: 100%;
+    font: normal 14px 'arial';
+    background-color: rgb(214, 214, 214);
+    margin-bottom: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: rgb(136, 135, 135);
+}
+.submit-btn:hover{
+	background-color: rgb(255, 255, 255);
+    color: #000;
+}
+.submit-btn:active{
+    background-color: rgb(214, 214, 214);
+    color: rgb(136, 135, 135);
+}
+.find-btn:hover{
+	background-color: rgb(255, 255, 255);
+    color: #000;
+}
+.find-btn:active{
+    background-color: rgb(214, 214, 214);
+    color: rgb(136, 135, 135);
+}
+.links{
+    text-align: center;
+}
+.links a:link {
+    font-size: 12px;
+    color: rgb(147, 83, 249);
+}
+.links a:visited {
+    font-size: 12px;
+    color: black;
+}
+.links a:hover {
+    font-size: 12px;
+    color: white;
+}
+

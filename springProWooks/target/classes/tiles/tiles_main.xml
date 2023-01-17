@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout"
+		template="/WEB-INF/views/common/layout.jsp">
+		<put-attribute name="title" value="레이아웃 페이지" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/side.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+		<!-- <put-attribute name="quickMenu" value="/WEB-INF/views/common/quickMenu.jsp" /> -->
+	</definition>
+
+	 <!-- <definition name="/*/*" extends="baseLayout">
+		<put-attribute name="title" value="나무늘보의 하루" />
+		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>  -->
+	
+	 <definition name="/admin/*" extends="baseLayout">
+		<put-attribute name="title" value="나무늘보의 하루" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/{1}.jsp" />
+	</definition> 
+	
+	<definition name="/cart/*" extends="baseLayout">
+		<put-attribute name="title" value="나무늘보의 하루" />
+		<put-attribute name="body" value="/WEB-INF/views/cart/{1}.jsp" />
+	</definition> 
+	<definition name="/goods/*" extends="baseLayout">
+		<put-attribute name="title" value="나무늘보의 하루" />
+		<put-attribute name="body" value="/WEB-INF/views/goods/{1}.jsp" />
+	</definition> 
+	<definition name="/member/*" extends="baseLayout">
+		<put-attribute name="title" value="나무늘보의 하루" />
+		<put-attribute name="body" value="/WEB-INF/views/member/{1}.jsp" />
+	</definition> 
+	<definition name="/mypage/*" extends="baseLayout">
+		<put-attribute name="title" value="나무늘보의 하루" />
+		<put-attribute name="body" value="/WEB-INF/views/mypage/{1}.jsp" />
+	</definition> 
+	<definition name="/order/*" extends="baseLayout">
+		<put-attribute name="title" value="나무늘보의 하루" />
+		<put-attribute name="body" value="/WEB-INF/views/order/{1}.jsp" />
+	</definition> 
+	
+	<definition name="/main/home" extends="baseLayout">
+		<put-attribute name="title" value="나무늘보의 하루" />
+		<put-attribute name="body" value="/WEB-INF/views/main/home.jsp" />
+	</definition> 
+	
+	<definition name="empty" template="/WEB-INF/views/main/home1.jsp">
+   		<put-attribute name="body" value=""/>
+   </definition>
+   
+   <definition name="/main/home1" extends="empty">
+   		<put-attribute name="body" value="/WEB-INF/views/main/home1.jsp"/>
+   </definition>
+   
+   
+   
+
+<!-- 	<definition name="goods/goods" extends="baseLayout">
+		<put-attribute name="title" value="쇼핑몰 메인페이지" />
+		<put-attribute name="body" value="/WEB-INF/views/main/main.jsp" />
+	</definition> -->
+</tiles-definitions>
+
+

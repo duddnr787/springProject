@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:context="http://www.springframework.org/schema/context"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	 http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context 
+  http://www.springframework.org/schema/context/spring-context-4.2.xsd
+  http://www.springframework.org/schema/aop 
+  http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+  http://www.springframework.org/schema/tx
+   http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util-4.0.xsd">  
+	
+	
+	<util:properties id="email.properties" location="/config/jdbc/email.properties"/>
+	<util:properties id="jdbc.properties" location="/config/jdbc/jdbc.properties"/>
+	<!-- Root Context: defines shared resources visible to all other web components -->
+				<!-- DataSource 설정 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	    <property name="driverClassName" value="#{jdbc.properties['jdbc.driverClassName']}" />		
+		<property name="url" value="#{jdbc.properties['jdbc.url']}" />		
+		<property name="username" value="#{jdbc.properties['jdbc.username']}" />
+		<property name="password" value="#{jdbc.properties['jdbc.password']}" />	
+	</bean>
+		
+	<!-- SessionFactory에 dataSourde, Bean 객체의 별명 설정, xml 파일의 위치 설정  -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	    <property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="com.myspring.springProWooks.entity" />
+		<property name="mapperLocations" value="classpath:com/myspring/springProWooks/mapper/**/*.xml" />
+	</bean>
+	 <!-- SqlSesionTemplate 클래스 설정  -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+	    <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+  		<property name="basePackage" value="com.myspring.springProWooks.mapper" />
+  		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
+  	</bean>
+
+	<bean id="transactionManager"  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>	
+    
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="#{email.properties['email.host']}" />		
+		<property name="port" value="#{email.properties['email.port']}" />		
+		<property name="username" value="#{email.properties['email.username']}" />
+		<property name="password" value="#{email.properties['email.password']}" />	
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

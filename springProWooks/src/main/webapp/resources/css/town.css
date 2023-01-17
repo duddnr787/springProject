@@ -1,0 +1,211 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+ul,
+ol,
+li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+	background: skyblue;
+	overflow: hidden;
+
+	animation: sky 20s linear infinite;
+}
+
+h1 {
+	width: 1000px;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%, 150%);
+
+	font: 100px/1 'Poiret One';
+	text-align: center;
+	color: rgb(166, 212, 252);
+	z-index:1;
+}
+
+section {
+	width: 1000px;
+	height: 400px;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -70%);
+}
+
+section .sky {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+section .sky .sun {
+	position: absolute;
+	top: -150px;
+	left: 50%;
+	margin-left: -100px;
+	transform-origin: center 500px;
+	animation: sun 20s linear infinite;
+}
+
+section .sky .cloud1 {
+	position: absolute;
+	top: -30px;
+	left: 10%;
+	animation: flow 10s linear infinite;
+}
+
+section .sky .cloud2 {
+	position: absolute;
+	top: 20px;
+	left: 0;
+	animation: flow 20s linear infinite;
+}
+
+section .town .night {
+	position: absolute;
+	bottom: 0;
+	left: 30px;
+}
+section .town .day {
+	position: absolute;
+	bottom: 0;
+	left: 30px;
+	animation: day 20s linear infinite;
+}
+
+section .town .circle {
+	position: absolute;
+	left: 50%;
+	bottom: 120px;
+	margin-left: -160px;
+	opacity: 0.7;
+	z-index: -3;
+}
+
+section .people {
+	width: 100%;
+	height: 100px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+section .people .man {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	animation: flow 5s linear infinite;
+}
+
+section .people .family {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	animation: flow 15s linear infinite;
+}
+
+/* section .sky{
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  transform�� �ъ슜�� �� �녿뒗 寃쎌슦 留덉쭊�� �댁슜�댁꽌 �덈컲留뚰겮 諛섎�濡� �대룞�쒖폒�쇳븳��
+  margin-left: -250px;
+  margin-top: -250px;
+
+} */
+
+@keyframes sun {
+	0% {
+		transform: rotate(-90deg);
+		opacity: 0;
+	}
+	25% {
+		transform: rotate(-30deg);
+		opacity: 1;
+	}
+	50% {
+		transform: rotate(30deg);
+		opacity: 1;
+	}
+	75% {
+		transform: rotate(90deg);
+		opacity: 0;
+	}
+	100% {
+		transform: rotate(-90deg);
+		opacity: 0;
+	}
+}
+
+@keyframes flow {
+	0% {
+		left: 0%;
+		opacity: 0;
+	}
+	10% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	100% {
+		left: 90%;
+		opacity: 0;
+	}
+}
+
+@keyframes day {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 1;
+	}
+	75% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes sky {
+	0% {
+		background: #b08fcc;
+	}
+	25% {
+		background: #b1e1e2;
+	}
+	50% {
+		background: #fcd2e2;
+	}
+	75% {
+		background: #636888;
+	}
+	100% {
+		background: #b08fcc;
+	}
+}
